@@ -1,0 +1,88 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: #0B0F0E;
+    color: #FFFFFF;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0F0E;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1A211F;
+  border-radius: 4px;
+  border: 1px solid #29312F;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B6FF00;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: rgba(18, 24, 23, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(41, 49, 47, 0.8);
+}
+
+.glass-nav {
+  background: rgba(11, 15, 14, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(41, 49, 47, 0.6);
+}
+
+/* Subtle background grid pattern */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(41, 49, 47, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(41, 49, 47, 0.25) 1px, transparent 1px);
+}
+
+.bg-dots-pattern {
+  background-size: 24px 24px;
+  background-image: radial-gradient(circle, rgba(182, 255, 0, 0.08) 1px, transparent 1px);
+}
+
+/* Glow effects */
+.glow-accent {
+  box-shadow: 0 0 30px -5px rgba(182, 255, 0, 0.2);
+}
+
+.glow-accent-sm {
+  box-shadow: 0 0 15px -3px rgba(182, 255, 0, 0.25);
+}
+
+/* Custom animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
