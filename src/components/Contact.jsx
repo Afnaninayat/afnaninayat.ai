@@ -33,7 +33,7 @@ export default function Contact() {
 
     if (Object.keys(validationErrors).length === 0) {
       setIsSubmitting(true);
-      
+
       // Simulate form interaction response
       setTimeout(() => {
         setIsSubmitting(false);
@@ -54,11 +54,11 @@ export default function Contact() {
   return (
     <section id="contact" className="py-24 bg-[#0B0F0E] relative border-t border-[#29312F]/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
+
           {/* Left Column: Direct Contact & Social Links */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -93,7 +93,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-xs font-mono text-[#6F7975]">DIRECT EMAIL</div>
-                    <div className="text-sm font-semibold">afnan.inayat@gmail.com</div>
+                    <div className="text-sm font-semibold">afnaninayat@gmail.com</div>
                   </div>
                 </div>
                 <span className="text-xs font-mono text-[#B6FF00] opacity-0 group-hover:opacity-100 transition-opacity">Send Mail →</span>
@@ -139,7 +139,7 @@ export default function Contact() {
           </motion.div>
 
           {/* Right Column: Contact Form */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -147,7 +147,7 @@ export default function Contact() {
             className="lg:col-span-7"
           >
             <div className="bg-[#121817] border border-[#29312F] rounded-2xl p-6 sm:p-8 shadow-2xl relative">
-              
+
               <h3 className="text-xl font-bold text-white mb-6 flex items-center space-x-2">
                 <span>Send a Message</span>
                 <Sparkles className="w-4 h-4 text-[#B6FF00]" />
@@ -171,10 +171,10 @@ export default function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-                  
+
                   {/* Name & Email Row */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    
+
                     {/* Name */}
                     <div className="space-y-1.5">
                       <label htmlFor="contact-name" className="block text-xs font-mono text-[#A7B0AD]">
@@ -187,9 +187,8 @@ export default function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="e.g. Sarah Jenkins"
-                        className={`w-full px-4 py-3 rounded-xl bg-[#1A211F] border text-sm text-white placeholder-[#6F7975] focus:outline-none transition-colors ${
-                          errors.name ? 'border-[#EF4444]' : 'border-[#29312F] focus:border-[#B6FF00]'
-                        }`}
+                        className={`w-full px-4 py-3 rounded-xl bg-[#1A211F] border text-sm text-white placeholder-[#6F7975] focus:outline-none transition-colors ${errors.name ? 'border-[#EF4444]' : 'border-[#29312F] focus:border-[#B6FF00]'
+                          }`}
                       />
                       {errors.name && (
                         <p className="text-xs text-[#EF4444] flex items-center space-x-1 mt-1">
@@ -211,9 +210,8 @@ export default function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="e.g. sarah@company.com"
-                        className={`w-full px-4 py-3 rounded-xl bg-[#1A211F] border text-sm text-white placeholder-[#6F7975] focus:outline-none transition-colors ${
-                          errors.email ? 'border-[#EF4444]' : 'border-[#29312F] focus:border-[#B6FF00]'
-                        }`}
+                        className={`w-full px-4 py-3 rounded-xl bg-[#1A211F] border text-sm text-white placeholder-[#6F7975] focus:outline-none transition-colors ${errors.email ? 'border-[#EF4444]' : 'border-[#29312F] focus:border-[#B6FF00]'
+                          }`}
                       />
                       {errors.email && (
                         <p className="text-xs text-[#EF4444] flex items-center space-x-1 mt-1">
@@ -253,9 +251,8 @@ export default function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Describe your project, question, or opportunity..."
-                      className={`w-full px-4 py-3 rounded-xl bg-[#1A211F] border text-sm text-white placeholder-[#6F7975] focus:outline-none transition-colors resize-none ${
-                        errors.message ? 'border-[#EF4444]' : 'border-[#29312F] focus:border-[#B6FF00]'
-                      }`}
+                      className={`w-full px-4 py-3 rounded-xl bg-[#1A211F] border text-sm text-white placeholder-[#6F7975] focus:outline-none transition-colors resize-none ${errors.message ? 'border-[#EF4444]' : 'border-[#29312F] focus:border-[#B6FF00]'
+                        }`}
                     ></textarea>
                     {errors.message && (
                       <p className="text-xs text-[#EF4444] flex items-center space-x-1 mt-1">
