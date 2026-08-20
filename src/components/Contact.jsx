@@ -84,7 +84,7 @@ export default function Contact() {
             {/* Quick Action Buttons */}
             <div className="space-y-3 pt-2">
               <a
-                href="mailto:afnan.inayat@example.com"
+                href="mailto:afnaninayat@gmail.com"
                 className="w-full flex items-center justify-between p-4 rounded-xl bg-[#121817] border border-[#29312F] text-white hover:border-[#B6FF00] hover:text-[#B6FF00] transition-all group"
               >
                 <div className="flex items-center space-x-3">

@@ -45,7 +45,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="mailto:afnan.inayat@gmail.com"
+              href="mailto:afnaninayat@gmail.com"
               className="p-2.5 rounded-xl bg-[#121817] border border-[#29312F] text-[#A7B0AD] hover:text-[#B6FF00] hover:border-[#B6FF00]/50 transition-colors"
               aria-label="Email Contact"
             >
