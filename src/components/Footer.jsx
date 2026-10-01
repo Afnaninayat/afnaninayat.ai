@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Mail, ArrowUp } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowUp, Cpu, TrendingUp, Heart } from 'lucide-react';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -7,69 +7,111 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#0B0F0E] border-t border-[#29312F] py-12 text-[#A7B0AD]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer className="bg-background border-t border-white/10 py-14 text-text-secondary">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        
+        {/* Top Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start justify-between">
           
-          {/* Brand */}
-          <div className="space-y-1 text-center md:text-left">
-            <div className="text-lg font-bold text-white tracking-tight flex items-center justify-center md:justify-start space-x-2">
+          {/* Brand & Summary */}
+          <div className="md:col-span-6 space-y-3">
+            <div className="text-xl font-display font-extrabold text-white tracking-tight flex items-center space-x-2">
               <span>AFNAN INAYAT</span>
-              <span className="w-2 h-2 rounded-full bg-[#B6FF00]"></span>
+              <span className="w-2 h-2 rounded-full bg-cyan-accent"></span>
             </div>
-            <div className="text-xs font-mono text-[#6F7975]">
-              Software Developer • AI & Computer Vision • Digital Verification
+            
+            <p className="text-xs sm:text-sm text-text-muted max-w-md leading-relaxed">
+              Computer Science Graduate | Digital IC Design Enthusiast | Digital Marketer | Content Creator | AI-Assisted Creative Strategist.
+            </p>
+
+            <div className="flex items-center space-x-3 pt-1">
+              <span className="inline-flex items-center space-x-1.5 text-[11px] font-mono text-cyan-accent bg-surface px-2.5 py-1 rounded-full border border-white/5">
+                <Cpu className="w-3 h-3" />
+                <span>Engineering & RTL</span>
+              </span>
+              <span className="inline-flex items-center space-x-1.5 text-[11px] font-mono text-violet-accent bg-surface px-2.5 py-1 rounded-full border border-white/5">
+                <TrendingUp className="w-3 h-3" />
+                <span>Growth & Creative</span>
+              </span>
             </div>
           </div>
 
-          {/* Social Links */}
-          <div className="flex items-center space-x-4">
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-[#121817] border border-[#29312F] text-[#A7B0AD] hover:text-[#B6FF00] hover:border-[#B6FF00]/50 transition-colors"
-              aria-label="GitHub Profile"
-            >
-              <Github className="w-4 h-4" />
-            </a>
+          {/* Quick Nav Links */}
+          <div className="md:col-span-3 space-y-2">
+            <div className="text-xs font-mono text-white uppercase tracking-wider font-semibold">
+              Site Navigation
+            </div>
+            <ul className="space-y-1.5 text-xs text-text-muted">
+              <li><a href="#about" className="hover:text-cyan-accent transition-colors">About & Philosophy</a></li>
+              <li><a href="#engineering" className="hover:text-cyan-accent transition-colors">Digital IC Design Journey</a></li>
+              <li><a href="#fyp-batsman-pro" className="hover:text-cyan-accent transition-colors">Batsman Pro (Flagship FYP)</a></li>
+              <li><a href="#marketing" className="hover:text-violet-accent transition-colors">Digital Marketing Portfolio</a></li>
+              <li><a href="#iqbal-jee" className="hover:text-violet-accent transition-colors">Iqbal Jee Case Study</a></li>
+              <li><a href="#skills" className="hover:text-white transition-colors">Skills & Tech Stack</a></li>
+            </ul>
+          </div>
 
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-[#121817] border border-[#29312F] text-[#A7B0AD] hover:text-[#B6FF00] hover:border-[#B6FF00]/50 transition-colors"
-              aria-label="LinkedIn Profile"
-            >
-              <Linkedin className="w-4 h-4" />
-            </a>
+          {/* Socials & Top Button */}
+          <div className="md:col-span-3 space-y-3">
+            <div className="text-xs font-mono text-white uppercase tracking-wider font-semibold">
+              Connect Directly
+            </div>
+            
+            <div className="flex items-center space-x-2">
+              <a
+                href="https://github.com/afnaninayat"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-xl bg-surface border border-white/10 text-text-muted hover:text-cyan-accent hover:border-cyan-accent transition-colors"
+                aria-label="GitHub Profile"
+              >
+                <Github className="w-4 h-4" />
+              </a>
 
-            <a
-              href="mailto:afnaninayat@gmail.com"
-              className="p-2.5 rounded-xl bg-[#121817] border border-[#29312F] text-[#A7B0AD] hover:text-[#B6FF00] hover:border-[#B6FF00]/50 transition-colors"
-              aria-label="Email Contact"
-            >
-              <Mail className="w-4 h-4" />
-            </a>
+              <a
+                href="https://linkedin.com/in/afnaninayat"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-xl bg-surface border border-white/10 text-text-muted hover:text-violet-accent hover:border-violet-accent transition-colors"
+                aria-label="LinkedIn Profile"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
 
-            <button
-              onClick={scrollToTop}
-              className="p-2.5 rounded-xl bg-[#121817] border border-[#29312F] text-[#B6FF00] hover:bg-[#B6FF00] hover:text-[#0B0F0E] transition-all ml-4"
-              aria-label="Back to Top"
-            >
-              <ArrowUp className="w-4 h-4" />
-            </button>
+              <a
+                href="mailto:afnaninayat@gmail.com"
+                className="p-2.5 rounded-xl bg-surface border border-white/10 text-text-muted hover:text-cyan-accent hover:border-cyan-accent transition-colors"
+                aria-label="Email Contact"
+              >
+                <Mail className="w-4 h-4" />
+              </a>
+
+              <button
+                onClick={scrollToTop}
+                className="p-2.5 rounded-xl bg-surface border border-white/10 text-cyan-accent hover:bg-cyan-accent hover:text-[#080B11] transition-all ml-auto"
+                aria-label="Scroll to top"
+              >
+                <ArrowUp className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="text-[11px] font-mono text-text-muted pt-1">
+              Based in Karachi, Pakistan • Class of 2026
+            </div>
           </div>
 
         </div>
 
-        {/* Copyright */}
-        <div className="mt-8 pt-6 border-t border-[#29312F]/60 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-[#6F7975] gap-4">
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-text-muted gap-4">
           <div>
-            © 2026 Afnan Inayat. Built with React & Tailwind CSS.
+            © {new Date().getFullYear()} Afnan Inayat. All rights reserved.
           </div>
-          <div>
-            Designed with <span className="text-[#B6FF00]">Batsman Pro</span> Visual Identity
+          <div className="flex items-center space-x-1">
+            <span>Built at the intersection of</span>
+            <span className="text-cyan-accent">Engineering</span>
+            <span>&</span>
+            <span className="text-violet-accent">Creative Strategy</span>
           </div>
         </div>
 

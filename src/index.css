@@ -9,9 +9,13 @@
   }
   
   body {
-    background-color: #0B0F0E;
-    color: #FFFFFF;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #080B11;
+    color: #F8FAFC;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', 'Inter', system-ui, sans-serif;
   }
 }
 
@@ -21,68 +25,102 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0B0F0E;
+  background: #080B11;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1A211F;
+  background: #1E293B;
   border-radius: 4px;
-  border: 1px solid #29312F;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #B6FF00;
+  background: #00E5FF;
 }
 
 /* Glassmorphism Utilities */
 .glass-panel {
-  background: rgba(18, 24, 23, 0.75);
+  background: rgba(15, 22, 38, 0.72);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(41, 49, 47, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .glass-nav {
-  background: rgba(11, 15, 14, 0.85);
+  background: rgba(8, 11, 17, 0.82);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(41, 49, 47, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-/* Subtle background grid pattern */
+.glass-card-interactive {
+  background: rgba(15, 22, 38, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-interactive:hover {
+  background: rgba(20, 29, 50, 0.85);
+  border-color: rgba(0, 229, 255, 0.35);
+  box-shadow: 0 16px 40px -15px rgba(0, 229, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.glass-card-violet:hover {
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 16px 40px -15px rgba(139, 92, 246, 0.2);
+}
+
+/* Background Grids & Dots */
 .bg-grid-pattern {
-  background-size: 32px 32px;
+  background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(41, 49, 47, 0.25) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(41, 49, 47, 0.25) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
 }
 
-.bg-dots-pattern {
-  background-size: 24px 24px;
-  background-image: radial-gradient(circle, rgba(182, 255, 0, 0.08) 1px, transparent 1px);
+.bg-circuit-dots {
+  background-size: 28px 28px;
+  background-image: radial-gradient(circle, rgba(0, 229, 255, 0.08) 1px, transparent 1px);
 }
 
-/* Glow effects */
-.glow-accent {
-  box-shadow: 0 0 30px -5px rgba(182, 255, 0, 0.2);
+.bg-radial-gradient {
+  background: radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.08) 0%, transparent 60%);
 }
 
-.glow-accent-sm {
-  box-shadow: 0 0 15px -3px rgba(182, 255, 0, 0.25);
+.bg-radial-dual {
+  background: 
+    radial-gradient(circle at 20% 10%, rgba(0, 229, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
 }
 
-/* Custom animations */
-@keyframes pulseGlow {
-  0%, 100% {
-    opacity: 0.4;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.05);
-  }
+/* Custom Text Gradient */
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #FFFFFF 20%, #00E5FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.animate-pulse-glow {
-  animation: pulseGlow 4s ease-in-out infinite;
+.text-gradient-dual {
+  background: linear-gradient(135deg, #00E5FF 0%, #FFFFFF 50%, #A855F7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-violet {
+  background: linear-gradient(135deg, #FFFFFF 20%, #C084FC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Neon glow helper */
+.glow-cyan-border {
+  border-color: rgba(0, 229, 255, 0.5);
+  box-shadow: 0 0 20px -3px rgba(0, 229, 255, 0.3);
+}
+
+.glow-violet-border {
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 0 20px -3px rgba(139, 92, 246, 0.3);
 }
