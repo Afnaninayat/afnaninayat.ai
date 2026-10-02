@@ -14,12 +14,33 @@ export default function Contact() {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submissionType, setSubmissionType] = useState('mailto');
+  const [lastSender, setLastSender] = useState({ name: '', email: '', track: '', subject: '', message: '' });
+  const [submitError, setSubmitError] = useState(null);
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText('afnaninayat@gmail.com');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const triggerDirectMail = (data) => {
+    const mailSubject = encodeURIComponent(
+      data.subject
+        ? `[Portfolio Contact] ${data.subject} - from ${data.name}`
+        : `[Portfolio Inquiry - ${data.track}] from ${data.name}`
+    );
+    const mailBody = encodeURIComponent(
+      `Hello Afnan,\n\n` +
+      `My Name: ${data.name}\n` +
+      `My Email (Reply-To): ${data.email}\n` +
+      `Inquiry Track: ${data.track}\n\n` +
+      `Message:\n${data.message}\n\n` +
+      `-----------------------------------------\n` +
+      `Sent by ${data.name} <${data.email}> via your portfolio contact form.`
+    );
+    window.location.href = `mailto:afnaninayat@gmail.com?subject=${mailSubject}&body=${mailBody}`;
   };
 
   const validate = () => {
@@ -34,18 +55,59 @@ export default function Contact() {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     setErrors(validationErrors);
+    setSubmitError(null);
 
     if (Object.keys(validationErrors).length === 0) {
       setIsSubmitting(true);
-      setTimeout(() => {
-        setIsSubmitting(false);
-        setSubmitted(true);
-        setFormData({ name: '', email: '', track: 'General Inquiry', subject: '', message: '' });
-      }, 900);
+      const currentSenderData = { ...formData };
+      setLastSender(currentSenderData);
+      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
+      // If Web3Forms API key is configured, send directly to Afnan's inbox with reply-to set to the sender's email
+      if (accessKey && !accessKey.includes('your_web3forms')) {
+        try {
+          const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json'
+            },
+            body: JSON.stringify({
+              access_key: accessKey,
+              name: formData.name,
+              email: formData.email, // Sender's email from "YOUR EMAIL" section
+              replyto: formData.email, // Sets Reply-To header so Afnan can reply directly to the sender
+              track: formData.track,
+              subject: `[Portfolio - ${formData.track}] from ${formData.name} <${formData.email}>: ${formData.subject || 'New Message'}`,
+              message: formData.message,
+              from_name: `${formData.name} (via Portfolio)`
+            })
+          });
+
+          const result = await response.json();
+
+          if (result.success) {
+            setIsSubmitting(false);
+            setSubmitted(true);
+            setSubmissionType('api');
+            setFormData({ name: '', email: '', track: 'General Inquiry', subject: '', message: '' });
+            return;
+          }
+        } catch (err) {
+          console.warn('API submission failed, using direct email client fallback:', err);
+        }
+      }
+
+      // Direct email: immediately trigger visitor's mail client with sender email and message addressed to afnaninayat@gmail.com
+      setIsSubmitting(false);
+      setSubmitted(true);
+      setSubmissionType('mailto');
+      triggerDirectMail(currentSenderData);
+      setFormData({ name: '', email: '', track: 'General Inquiry', subject: '', message: '' });
     }
   };
 
@@ -54,6 +116,9 @@ export default function Contact() {
     setFormData(prev => ({ ...prev, [name]: value }));
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: null }));
+    }
+    if (submitError) {
+      setSubmitError(null);
     }
   };
 
@@ -192,16 +257,39 @@ export default function Contact() {
                   <div className="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center">
                     <CheckCircle2 className="w-7 h-7" />
                   </div>
-                  <h4 className="text-xl font-bold text-white">Message Delivered!</h4>
+                  <h4 className="text-xl font-bold text-white">
+                    {submissionType === 'api' ? 'Message Delivered to Afnan!' : 'Email Created & Prepared!'}
+                  </h4>
                   <p className="text-sm text-text-secondary max-w-md mx-auto leading-relaxed">
-                    Thank you for reaching out. Afnan will review your message and reply promptly.
+                    Thank you <span className="text-white font-semibold">{lastSender.name || 'there'}</span>. Your message from{' '}
+                    <span className="text-cyan-accent font-mono font-medium">{lastSender.email}</span> is sent directly to{' '}
+                    <span className="text-white font-mono font-medium">afnaninayat@gmail.com</span>.
                   </p>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="px-6 py-2.5 rounded-xl bg-surface border border-white/10 text-xs font-semibold text-cyan-accent hover:border-cyan-accent transition-colors"
-                  >
-                    Send Another Message
-                  </button>
+                  
+                  {submissionType === 'mailto' && (
+                    <div className="pt-2">
+                      <button
+                        type="button"
+                        onClick={() => triggerDirectMail(lastSender)}
+                        className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-accent to-blue-500 text-[#080B11] font-bold text-xs shadow-cyan-glow hover:opacity-95 transition-all"
+                      >
+                        <Mail className="w-4 h-4" />
+                        <span>Re-open in Mail App</span>
+                      </button>
+                    </div>
+                  )}
+
+                  <div className="pt-2">
+                    <button
+                      onClick={() => {
+                        setSubmitted(false);
+                        setSubmitError(null);
+                      }}
+                      className="px-6 py-2.5 rounded-xl bg-surface border border-white/10 text-xs font-semibold text-cyan-accent hover:border-cyan-accent transition-colors"
+                    >
+                      Send Another Message
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5" noValidate>
@@ -321,6 +409,24 @@ export default function Contact() {
                       </p>
                     )}
                   </div>
+
+                  {/* Submission Error Banner & Direct Fallback */}
+                  {submitError && (
+                    <div className="p-4 rounded-2xl bg-red-500/10 border border-red-500/30 space-y-2.5 animate-in fade-in">
+                      <div className="flex items-start space-x-2.5 text-xs text-red-300">
+                        <AlertCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
+                        <span>{submitError.message}</span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={handleMailtoFallback}
+                        className="inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-surface border border-white/15 text-xs font-semibold text-white hover:border-cyan-accent hover:text-cyan-accent transition-colors"
+                      >
+                        <Mail className="w-3.5 h-3.5" />
+                        <span>Send via Email App Instead</span>
+                      </button>
+                    </div>
+                  )}
 
                   {/* Submit Button */}
                   <button
