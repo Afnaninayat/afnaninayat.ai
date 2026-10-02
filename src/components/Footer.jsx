@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Mail, ArrowUp, Cpu, TrendingUp, Heart } from 'lucide-react';
+import { Github, Linkedin, Instagram, Facebook, Mail, ArrowUp, Cpu, TrendingUp, Heart } from 'lucide-react';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -57,13 +57,14 @@ export default function Footer() {
               Connect Directly
             </div>
             
-            <div className="flex items-center space-x-2">
+            <div className="flex flex-wrap items-center gap-2">
               <a
-                href="https://github.com/afnaninayat"
+                href="https://github.com/Afnaninayat"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 rounded-xl bg-surface border border-white/10 text-text-muted hover:text-cyan-accent hover:border-cyan-accent transition-colors"
-                aria-label="GitHub Profile"
+                aria-label="GitHub Profile @Afnaninayat"
+                title="GitHub: @Afnaninayat"
               >
                 <Github className="w-4 h-4" />
               </a>
@@ -73,15 +74,39 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 rounded-xl bg-surface border border-white/10 text-text-muted hover:text-violet-accent hover:border-violet-accent transition-colors"
-                aria-label="LinkedIn Profile"
+                aria-label="LinkedIn Profile in/afnaninayat"
+                title="LinkedIn: in/afnaninayat"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
 
               <a
+                href="https://instagram.com/afnaninayatt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-xl bg-surface border border-white/10 text-text-muted hover:text-pink-400 hover:border-pink-500 transition-colors"
+                aria-label="Instagram Profile @afnaninayatt"
+                title="Instagram: @afnaninayatt"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+
+              <a
+                href="https://www.facebook.com/afnaninayat"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-xl bg-surface border border-white/10 text-text-muted hover:text-blue-400 hover:border-blue-500 transition-colors"
+                aria-label="Facebook Profile Afnan Inayat"
+                title="Facebook: Afnan Inayat"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
+
+              <a
                 href="mailto:afnaninayat@gmail.com"
                 className="p-2.5 rounded-xl bg-surface border border-white/10 text-text-muted hover:text-cyan-accent hover:border-cyan-accent transition-colors"
-                aria-label="Email Contact"
+                aria-label="Email Afnan Inayat"
+                title="Email: afnaninayat@gmail.com"
               >
                 <Mail className="w-4 h-4" />
               </a>
@@ -90,6 +115,7 @@ export default function Footer() {
                 onClick={scrollToTop}
                 className="p-2.5 rounded-xl bg-surface border border-white/10 text-cyan-accent hover:bg-cyan-accent hover:text-[#080B11] transition-all ml-auto"
                 aria-label="Scroll to top"
+                title="Scroll to Top"
               >
                 <ArrowUp className="w-4 h-4" />
               </button>

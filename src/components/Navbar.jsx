@@ -16,6 +16,8 @@ import {
   ChevronRight,
   Github, 
   Linkedin,
+  Instagram,
+  Facebook,
   PhoneCall
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -447,13 +449,14 @@ export default function Navbar({ activeTrack, setActiveTrack }) {
                   </a>
 
                   {/* Direct Contact & Social Links */}
-                  <div className="flex items-center justify-center space-x-3 pt-2">
+                  <div className="flex flex-wrap items-center justify-center gap-2.5 pt-2">
                     <a
-                      href="https://github.com/afnaninayat"
+                      href="https://github.com/Afnaninayat"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-2.5 rounded-xl bg-surface border border-white/10 text-text-muted hover:text-cyan-accent hover:border-cyan-accent transition-colors"
-                      aria-label="GitHub Profile"
+                      aria-label="GitHub Profile @Afnaninayat"
+                      title="GitHub: @Afnaninayat"
                     >
                       <Github className="w-4 h-4" />
                     </a>
@@ -462,14 +465,36 @@ export default function Navbar({ activeTrack, setActiveTrack }) {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-2.5 rounded-xl bg-surface border border-white/10 text-text-muted hover:text-violet-accent hover:border-violet-accent transition-colors"
-                      aria-label="LinkedIn Profile"
+                      aria-label="LinkedIn Profile in/afnaninayat"
+                      title="LinkedIn: in/afnaninayat"
                     >
                       <Linkedin className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="https://instagram.com/afnaninayatt"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2.5 rounded-xl bg-surface border border-white/10 text-text-muted hover:text-pink-400 hover:border-pink-500 transition-colors"
+                      aria-label="Instagram Profile @afnaninayatt"
+                      title="Instagram: @afnaninayatt"
+                    >
+                      <Instagram className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="https://www.facebook.com/afnaninayat"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2.5 rounded-xl bg-surface border border-white/10 text-text-muted hover:text-blue-400 hover:border-blue-500 transition-colors"
+                      aria-label="Facebook Profile Afnan Inayat"
+                      title="Facebook: Afnan Inayat"
+                    >
+                      <Facebook className="w-4 h-4" />
                     </a>
                     <a
                       href="mailto:afnaninayat@gmail.com"
                       className="p-2.5 rounded-xl bg-surface border border-white/10 text-text-muted hover:text-cyan-accent hover:border-cyan-accent transition-colors"
                       aria-label="Email Afnan"
+                      title="Email: afnaninayat@gmail.com"
                     >
                       <Mail className="w-4 h-4" />
                     </a>

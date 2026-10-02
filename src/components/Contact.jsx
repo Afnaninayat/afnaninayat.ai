@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Github, Linkedin, Send, CheckCircle2, AlertCircle, Sparkles, MessageSquare, Copy, Check, FileText } from 'lucide-react';
+import { Mail, Github, Linkedin, Instagram, Facebook, Send, CheckCircle2, AlertCircle, Sparkles, MessageSquare, Copy, Check, FileText } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Contact() {
@@ -181,21 +181,46 @@ export default function Contact() {
                 </button>
               </div>
 
+              {/* GitHub */}
+              <a
+                href="https://github.com/Afnaninayat"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-between p-4 rounded-2xl bg-surface border border-white/10 hover:border-cyan-accent/50 transition-all group"
+                aria-label="GitHub Profile @Afnaninayat"
+              >
+                <div className="flex items-center space-x-3.5">
+                  <div className="p-2.5 rounded-xl bg-surface-elevated text-cyan-accent border border-white/5 group-hover:scale-105 transition-transform">
+                    <Github className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-mono text-text-muted">ENGINEERING & CODE</div>
+                    <div className="text-sm font-semibold text-white group-hover:text-cyan-accent transition-colors flex items-center space-x-1.5">
+                      <span>GitHub: @Afnaninayat</span>
+                    </div>
+                  </div>
+                </div>
+                <span className="text-xs font-mono text-cyan-accent opacity-0 group-hover:opacity-100 transition-opacity">
+                  Inspect Code →
+                </span>
+              </a>
+
               {/* LinkedIn */}
               <a
                 href="https://linkedin.com/in/afnaninayat"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-between p-4 rounded-2xl bg-surface border border-white/10 hover:border-violet-accent/50 transition-all group"
+                aria-label="LinkedIn Profile in/afnaninayat"
               >
                 <div className="flex items-center space-x-3.5">
-                  <div className="p-2.5 rounded-xl bg-surface-elevated text-violet-accent border border-white/5">
+                  <div className="p-2.5 rounded-xl bg-surface-elevated text-violet-accent border border-white/5 group-hover:scale-105 transition-transform">
                     <Linkedin className="w-5 h-5" />
                   </div>
                   <div>
                     <div className="text-[11px] font-mono text-text-muted">PROFESSIONAL NETWORK</div>
                     <div className="text-sm font-semibold text-white group-hover:text-violet-accent transition-colors">
-                      linkedin.com/in/afnaninayat
+                      LinkedIn: in/afnaninayat
                     </div>
                   </div>
                 </div>
@@ -204,26 +229,51 @@ export default function Contact() {
                 </span>
               </a>
 
-              {/* GitHub */}
+              {/* Instagram */}
               <a
-                href="https://github.com/afnaninayat"
+                href="https://instagram.com/afnaninayatt"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-between p-4 rounded-2xl bg-surface border border-white/10 hover:border-cyan-accent/50 transition-all group"
+                className="w-full flex items-center justify-between p-4 rounded-2xl bg-surface border border-white/10 hover:border-pink-500/50 transition-all group"
+                aria-label="Instagram Profile @afnaninayatt"
               >
                 <div className="flex items-center space-x-3.5">
-                  <div className="p-2.5 rounded-xl bg-surface-elevated text-cyan-accent border border-white/5">
-                    <Github className="w-5 h-5" />
+                  <div className="p-2.5 rounded-xl bg-surface-elevated text-pink-400 border border-white/5 group-hover:scale-105 transition-transform">
+                    <Instagram className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-[11px] font-mono text-text-muted">SOURCE CODE & PROJECTS</div>
-                    <div className="text-sm font-semibold text-white group-hover:text-cyan-accent transition-colors">
-                      github.com/afnaninayat
+                    <div className="text-[11px] font-mono text-text-muted">PERSONAL BRAND & CONTENT</div>
+                    <div className="text-sm font-semibold text-white group-hover:text-pink-400 transition-colors">
+                      Instagram: @afnaninayatt
                     </div>
                   </div>
                 </div>
-                <span className="text-xs font-mono text-cyan-accent opacity-0 group-hover:opacity-100 transition-opacity">
-                  Inspect →
+                <span className="text-xs font-mono text-pink-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                  Follow →
+                </span>
+              </a>
+
+              {/* Facebook */}
+              <a
+                href="https://www.facebook.com/afnaninayat"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-between p-4 rounded-2xl bg-surface border border-white/10 hover:border-blue-500/50 transition-all group"
+                aria-label="Facebook Profile Afnan Inayat"
+              >
+                <div className="flex items-center space-x-3.5">
+                  <div className="p-2.5 rounded-xl bg-surface-elevated text-blue-400 border border-white/5 group-hover:scale-105 transition-transform">
+                    <Facebook className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-mono text-text-muted">SOCIAL PRESENCE</div>
+                    <div className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">
+                      Facebook: Afnan Inayat
+                    </div>
+                  </div>
+                </div>
+                <span className="text-xs font-mono text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                  View →
                 </span>
               </a>
 

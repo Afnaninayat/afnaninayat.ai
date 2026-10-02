@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Cpu, ShieldCheck, GitBranch, Sliders, Binary, Layers, CheckCircle2, ArrowRight, Activity, Terminal, Sparkles, BookOpen } from 'lucide-react';
+import { Cpu, ShieldCheck, GitBranch, Sliders, Binary, Layers, CheckCircle2, ArrowRight, Activity, Terminal, Sparkles, BookOpen, Github } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { digitalICStages, ambaProtocols } from '../data/engineeringJourney';
 
@@ -138,6 +138,50 @@ export default function DigitalICJourney() {
                   <Sparkles className="w-4 h-4 shrink-0" />
                   <span><strong>Milestone:</strong> {activeStage.highlight}</span>
                 </div>
+
+                {/* Stage Connected Public GitHub Repositories */}
+                {(() => {
+                  const stageRepos = {
+                    'stage-2': [
+                      { name: 'uart-verilog', label: 'View UART RTL →', url: 'https://github.com/Afnaninayat/uart-verilog' },
+                      { name: 'learning_verilog', label: 'Explore RTL Designs →', url: 'https://github.com/Afnaninayat/learning_verilog' }
+                    ],
+                    'stage-4': [
+                      { name: 'Industry_protocols', label: 'Explore Protocol Implementations (APB/AHB/AXI) →', url: 'https://github.com/Afnaninayat/Industry_protocols' }
+                    ],
+                    'stage-5': [
+                      { name: 'apb_uvm_testbench', label: 'View APB UVM Testbench Code →', url: 'https://github.com/Afnaninayat/apb_uvm_testbench' }
+                    ],
+                    'stage-6': [
+                      { name: '32bit-Single_cycle_processor_RISC-V-GDS', label: 'View RTL & Physical Design (RISC-V) →', url: 'https://github.com/Afnaninayat/32bit-Single_cycle_processor_RISC-V-GDS' }
+                    ]
+                  }[activeStage.id];
+
+                  if (!stageRepos) return null;
+
+                  return (
+                    <div className="pt-2 space-y-2">
+                      <div className="text-[11px] font-mono text-text-muted uppercase tracking-wider flex items-center space-x-1.5">
+                        <Github className="w-3.5 h-3.5 text-cyan-accent" />
+                        <span>Connected Public GitHub Repository:</span>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {stageRepos.map((repo) => (
+                          <a
+                            key={repo.name}
+                            href={repo.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-xl bg-surface-elevated border border-white/10 text-xs font-mono text-white hover:border-cyan-accent hover:text-cyan-accent transition-colors shadow-sm"
+                          >
+                            <Github className="w-3.5 h-3.5 text-cyan-accent" />
+                            <span>{repo.label}</span>
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })()}
 
               </div>
 
@@ -305,6 +349,19 @@ export default function DigitalICJourney() {
 
                     <div className="text-[11px] text-text-muted leading-tight text-center pt-1">
                       Designed and verified with SystemVerilog Assertions in QuestaSim.
+                    </div>
+
+                    <div className="pt-2">
+                      <a
+                        href="https://github.com/Afnaninayat/Industry_protocols"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full flex items-center justify-center space-x-2 py-2.5 px-4 rounded-xl bg-surface-elevated border border-cyan-accent/30 text-xs font-mono text-cyan-accent hover:bg-cyan-accent hover:text-[#080B11] hover:border-cyan-accent font-semibold transition-all duration-200 group"
+                        aria-label="Explore AMBA Protocol Implementations on GitHub"
+                      >
+                        <Github className="w-3.5 h-3.5 group-hover:rotate-12 transition-transform" />
+                        <span>Explore Protocol Implementations (Industry_protocols) →</span>
+                      </a>
                     </div>
                   </div>
 

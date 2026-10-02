@@ -1,5 +1,5 @@
 import React from 'react';
-import { Youtube, Play, TrendingUp, CheckCircle2, Sparkles, BarChart2, Eye, Users } from 'lucide-react';
+import { Youtube, Play, TrendingUp, CheckCircle2, Sparkles, BarChart2, Eye, Users, Instagram } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { creatorLab } from '../data/marketingData';
 
@@ -37,6 +37,19 @@ export default function CreatorLab() {
                       <span>{insight}</span>
                     </div>
                   ))}
+                </div>
+
+                <div className="pt-2">
+                  <a
+                    href="https://instagram.com/afnaninayatt"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-surface-elevated border border-pink-500/30 text-xs font-mono text-pink-400 hover:bg-pink-500/10 hover:border-pink-500 transition-colors"
+                    aria-label="Explore Creative Content on Instagram @afnaninayatt"
+                  >
+                    <Instagram className="w-3.5 h-3.5" />
+                    <span>Explore Creative Work on Instagram (@afnaninayatt) →</span>
+                  </a>
                 </div>
               </div>
 

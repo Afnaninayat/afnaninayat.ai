@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, ArrowUpRight, Cpu, TrendingUp, Sparkles, CheckCircle2, Terminal, Code2, Play, Award, Zap } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Cpu, TrendingUp, Sparkles, CheckCircle2, Terminal, Code2, Play, Award, Zap, Github, Linkedin, Instagram, Facebook } from 'lucide-react';
 import { motion } from 'framer-motion';
 import afnanAvatar from '../assets/images/afnan_avatar.jpg';
 import { impactMetrics } from '../data/impactMetrics';
@@ -149,6 +149,56 @@ export default function Hero({ setActiveTrack }) {
                 className="inline-flex items-center space-x-2 px-5 py-3.5 rounded-xl bg-surface border border-white/10 text-sm font-semibold text-text-secondary hover:text-white hover:border-white/25 transition-all"
               >
                 <span>Contact Me</span>
+              </a>
+            </motion.div>
+
+            {/* Verified Social Presence Links */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex items-center space-x-2.5 pt-1 text-xs font-mono text-text-muted"
+            >
+              <span>Connect:</span>
+              <a
+                href="https://github.com/Afnaninayat"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-xl bg-surface border border-white/10 text-text-secondary hover:text-cyan-accent hover:border-cyan-accent/50 transition-colors"
+                aria-label="GitHub Profile @Afnaninayat"
+                title="GitHub: @Afnaninayat"
+              >
+                <Github className="w-4 h-4" />
+              </a>
+              <a
+                href="https://linkedin.com/in/afnaninayat"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-xl bg-surface border border-white/10 text-text-secondary hover:text-violet-accent hover:border-violet-accent/50 transition-colors"
+                aria-label="LinkedIn Profile in/afnaninayat"
+                title="LinkedIn: in/afnaninayat"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+              <a
+                href="https://instagram.com/afnaninayatt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-xl bg-surface border border-white/10 text-text-secondary hover:text-pink-400 hover:border-pink-500/50 transition-colors"
+                aria-label="Instagram Profile @afnaninayatt"
+                title="Instagram: @afnaninayatt"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.facebook.com/afnaninayat"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-xl bg-surface border border-white/10 text-text-secondary hover:text-blue-400 hover:border-blue-500/50 transition-colors"
+                aria-label="Facebook Profile Afnan Inayat"
+                title="Facebook: Afnan Inayat"
+              >
+                <Facebook className="w-4 h-4" />
               </a>
             </motion.div>
 
